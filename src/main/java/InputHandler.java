@@ -18,12 +18,12 @@ public class InputHandler {
         return getBaseballNumberFromUser();
     }
 
-    static int askUserToStopGameOrNot() {
+    static String askUserToStopGameOrNot() {
         System.out.println(WRITE_YOUR_CHOICE);
         String input = SCANNER.nextLine().trim();
 
         if(Validator.checkChoiceIsValid(input)) {
-            return Integer.parseInt(input);
+            return input;
         }
         System.out.println(WRITE_YOUR_CHOICE);
         return askUserToStopGameOrNot();

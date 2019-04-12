@@ -1,4 +1,6 @@
 public class BaseballResult {
+    static final String ALL_STRIKE = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
+
     private int ball = 0;
     private int strike = 0;
 
@@ -10,27 +12,39 @@ public class BaseballResult {
 
     private void incrementBallOrStrike(char userCharacter,
                                        String generatedNumber, int index) {
-        incrementStrike(userCharacter, generatedNumber, index);
-        incrementBall(userCharacter, generatedNumber);
-    }
-
-    private void incrementStrike(char userCharacter,
-                                    String generatedNumber, int index) {
-        if(userCharacter == generatedNumber.charAt(index)) {
+        if(isStrike(userCharacter,generatedNumber, index)) {
             strike++;
         }
-    }
-
-    private void incrementBall(char userCharacter,
-                                    String generatedNumber) {
-        int count = 0;
-        for(int i = 0; i <BaseballNumber.VALID_LENGTH; i++) {
-            count = incrementCountIfNumberMatches(count, userCharacter, generatedNumber.charAt(i));
-        }
-        if(count > 1) {
+        if(isBall(userCharacter,generatedNumber, index)) {
             ball++;
         }
     }
+
+    private boolean isStrike(char userCharacter, String generatedNumber, int index) {
+        if(userCharacter == generatedNumber.charAt(index)) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isBall(char userCharacter, String generatedNumber, int index) {
+        if(isStrike(userCharacter, generatedNumber, index)) {
+            return false;
+        }
+        return isBall(userCharacter, generatedNumber);
+    }
+
+    private boolean isBall(char userCharacter, String generatedNumber) {
+        int count = 0;
+        for(int i = 0; i < BaseballNumber.VALID_LENGTH; i ++) {
+            count = incrementCountIfNumberMatches(count,
+                    userCharacter, generatedNumber.charAt(i));
+        }
+        return count > 0;
+    }
+
+
+
 
     private int incrementCountIfNumberMatches(int count, char userCharacter,
                                                char generatedCharacter) {
@@ -38,6 +52,14 @@ public class BaseballResult {
             return count + 1;
         }
         return count;
+    }
+
+    public boolean isAllStrike() {
+        if(strike == BaseballNumber.VALID_LENGTH) {
+            System.out.println(ALL_STRIKE);
+            return true;
+        }
+        return false;
     }
 
     @Override
