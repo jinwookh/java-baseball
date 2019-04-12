@@ -42,15 +42,8 @@ public class BaseballResult {
 
     @Override
     public String toString() {
-        String string = "";
-        if(strike != 0) {
-            string += strike + " 스트라이크 ";
-        }
-        if(ball != 0) {
-            return string +  ball + "볼";
-        }
-        if (ball == 0 && strike == 0) {
-            return string + "MISS";
-        }
+        BaseballResultString baseballResultString =
+                new BaseballResultString(strike, ball);
+        return baseballResultString.toString();
     }
 }
