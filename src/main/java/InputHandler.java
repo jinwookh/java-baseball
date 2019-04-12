@@ -8,12 +8,12 @@ public class InputHandler {
 
     private static Scanner SCANNER = new Scanner(System.in);
 
-    static int getBaseballNumberFromUser() {
+    static String getBaseballNumberFromUser() {
         System.out.print(WRITE_THE_NUMBER);
         String input = SCANNER.nextLine().trim();
 
         if(Validator.checkStringIsValid(input)) {
-            return Integer.parseInt(input);
+            return input;
         }
         return getBaseballNumberFromUser();
     }
