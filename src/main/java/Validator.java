@@ -1,6 +1,7 @@
 
 public class Validator {
-
+    static final int CHOICE_TO_GO = 1;
+    static final int CHOICE_TO_STOP = 2;
 
     static boolean checkStringIsValid(String input) {
         int count = 0;
@@ -15,6 +16,16 @@ public class Validator {
             return count + 1;
         }
         return count;
+    }
+
+    static boolean checkChoiceIsValid(String input) {
+        try {
+            int integer = Integer.parseInt(input);
+            return integer == CHOICE_TO_GO || integer == CHOICE_TO_STOP;
+        }
+        catch(Exception e) {
+            return false;
+        }
     }
 
 }

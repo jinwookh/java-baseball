@@ -4,6 +4,7 @@ public class BaseballNumber {
     static final char NINE = '9';
     static final int VALID_LENGTH = 3;
 
+
     private String numberString = "";
 
     BaseballNumber() {
