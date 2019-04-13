@@ -1,10 +1,6 @@
 import java.util.*;
 
 public class GameResult {
-    private int STRIKE = 1;
-    private int BALL = 2;
-    private int MISS = 0;
-
     private int strike = 0;
     private int ball = 0;
 
@@ -14,28 +10,28 @@ public class GameResult {
 
     GameResult(String userNumber, String generatedNumber) {
         for(int i = 0; i< GameNumber.LENGTH; i++) {
-            int result = isStrikeOrBallOrMiss(userNumber.charAt(i), generatedNumber, i);
+            RoundResult result = isStrikeOrBallOrMiss(userNumber.charAt(i), generatedNumber, i);
             adaptResult(result);
         }
     }
 
-    private int isStrikeOrBallOrMiss(char userCharacter,
+    private RoundResult isStrikeOrBallOrMiss(char userCharacter,
                                      String generatedNumber, int index) {
         if(isStrike(userCharacter, generatedNumber, index)) {
-            return STRIKE;
+            return RoundResult.STRIKE;
         }
         if(isBall(userCharacter, generatedNumber, index)) {
-            return BALL;
+            return RoundResult.BALL;
         }
-        return MISS;
+        return RoundResult.MISS;
     }
 
-    private void adaptResult(int result) {
-        if(result == STRIKE) {
+    private void adaptResult(RoundResult result) {
+        if(result == RoundResult.STRIKE) {
             strike++;
             return;
         }
-        if(result == BALL) {
+        if(result == RoundResult.BALL) {
             ball++;
         }
     }
