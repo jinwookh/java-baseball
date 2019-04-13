@@ -30,6 +30,20 @@ public class GameNumber {
         return true;
     }
 
+    public static GameNumber generateGameNumber() {
+        String gameNumber = "";
+        for(int i = 0; i < LENGTH; i++) {
+            gameNumber += generateRandomNumber(Character.getNumericValue(BOTTOM),
+                    Character.getNumericValue(TOP));
+        }
+        return new GameNumber(gameNumber);
+    }
+
+    private static String generateRandomNumber(int bottom, int top) {
+        int randomNumber = (int)(Math.random()*(top - bottom + 1) + bottom);
+        return Integer.toString(randomNumber);
+    }
+
     @Override
     public String toString() {
         return numberString;
