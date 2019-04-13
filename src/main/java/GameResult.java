@@ -61,6 +61,13 @@ public class GameResult {
         return characterList;
     }
 
+    public boolean isAllStrike() {
+        if(strike == GameNumber.LENGTH) {
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         return GameResultString.is(strike, ball);
