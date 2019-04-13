@@ -1,6 +1,6 @@
 public class GameResultString {
     private static final String MISS = "MISS";
-    private static final String STRIKE = " 스트라이크";
+    private static final String STRIKE = " 스트라이크 ";
     private static final String BALL = "볼";
 
 

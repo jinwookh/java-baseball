@@ -1,6 +1,6 @@
 public class Game {
 
-    Choice doGame(GameNumber generatedNumber) {
+    static Choice doGame(GameNumber generatedNumber) {
         GameResult gameResult = new GameResult(InputHandler.getGameNumberFromUser(),
                 generatedNumber);
         System.out.println(gameResult.toString());
@@ -9,5 +9,13 @@ public class Game {
         }
 
         return doGame(generatedNumber);
+    }
+
+    static void start() {
+        Choice choice = doGame(GameNumber.generateGameNumber());
+        if(choice.saysGo()) {
+            start();
+        }
+        return;
     }
 }
