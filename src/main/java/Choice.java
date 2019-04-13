@@ -18,6 +18,13 @@ public class Choice {
         return false;
     }
 
+    public boolean saysGo() {
+        return choice.equals(GO);
+    }
+
+    public boolean saysStrop() {
+        return choice.equals(STOP);
+    }
 
 
 }

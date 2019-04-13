@@ -5,13 +5,13 @@ public class GameNumber {
     private static String WRONG_NUMBER_FORMAT_ERROR = "1~9로 이루어진 세 자리 숫자를" +
             " 입력해 주세요.";
 
-    private String number;
+    private String numberString;
 
     GameNumber(String input) {
         if(!checkValidity(input)) {
             throw new IllegalArgumentException(WRONG_NUMBER_FORMAT_ERROR);
         }
-        number = input;
+        numberString = input;
     }
 
     private boolean checkValidity(String input) {
@@ -30,4 +30,8 @@ public class GameNumber {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return numberString;
+    }
 }
