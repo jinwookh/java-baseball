@@ -1,5 +1,5 @@
 public class GameNumber {
-    private static int LENGTH = 3;
+    static int LENGTH = 3;
     private static char BOTTOM = '1';
     private static char TOP = '9';
     private static String WRONG_NUMBER_FORMAT_ERROR = "1~9로 이루어진 세 자리 숫자를" +
