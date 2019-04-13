@@ -4,9 +4,11 @@ public class Solution {
 
     public static void main(String args[]) {
 
-        InputHandler.getGameNumberFromUser();
+        GameNumber userNumber = InputHandler.getGameNumberFromUser();
         InputHandler.getChoiceFromUser();
-        System.out.println(GameNumber.generateGameNumber());
+        GameResult gameResult =
+                new GameResult(userNumber, GameNumber.generateGameNumber());
+        System.out.println(gameResult.toString());
     }
 
 }

@@ -61,6 +61,8 @@ public class GameResult {
         return characterList;
     }
 
-
-
+    @Override
+    public String toString() {
+        return GameResultString.is(strike, ball);
+    }
 }
