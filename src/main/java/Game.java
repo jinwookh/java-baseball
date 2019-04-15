@@ -10,4 +10,9 @@ public class Game {
         }
         return doGame(generatedNumber);
     }
+    /*
+    public static start() {
+
+    }
+    */
 }
