@@ -10,9 +10,13 @@ public class Game {
         }
         return doGame(generatedNumber);
     }
-    /*
-    public static start() {
 
+    public static void start() {
+        GameNumber generatedNumber = GameNumber.isGenerated();
+        Choice choice = doGame(generatedNumber.toString());
+        if (choice == Choice.GO) {
+            start();
+        }
     }
-    */
+
 }
