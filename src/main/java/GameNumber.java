@@ -1,31 +1,40 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class GameNumber {
     private static final int LENGTH = 3;
     private static final char ONE_CHARACTER = '1';
     private static final char NINE_CHARACTER = '9';
 
-    private String gameNumber;
+    private String gameNumberString;
 
     public GameNumber(String input) {
         if (checkValidity(input) == false) {
             throw new IllegalArgumentException();
         }
-        gameNumber = input;
+        gameNumberString = input;
 
     }
 
     private boolean checkValidity(String input) {
+        Set<Character> set = new HashSet<>();
         for (int i = 0; i < input.length(); i++) {
-            if (checkValidity(input.charAt(i)) == false) {
-                return false;
+            if (checkValidity(input.charAt(i))) {
+                set.add(input.charAt(i));
             }
         }
-        return input.length() == LENGTH;
+        return set.size() == LENGTH;
     }
 
     private boolean checkValidity(char character) {
         if (character >= ONE_CHARACTER && character <= NINE_CHARACTER) {
             return true;
         }
-        return false;
+        throw new IllegalStateException();
+    }
+
+    @Override
+    public String toString() {
+        return gameNumberString;
     }
 }
