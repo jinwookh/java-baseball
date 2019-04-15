@@ -2,7 +2,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class GameNumber {
-    private static final int LENGTH = 3;
+    public static final int LENGTH = 3;
     private static final char ONE_CHARACTER = '1';
     private static final char NINE_CHARACTER = '9';
 

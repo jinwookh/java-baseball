@@ -23,6 +23,10 @@ public class GameResult {
 
     }
 
+    public boolean isAllStrike() {
+        return strike == GameNumber.LENGTH;
+    }
+
     @Override
     public String toString() {
         return ""+strike+" "+ ball;
