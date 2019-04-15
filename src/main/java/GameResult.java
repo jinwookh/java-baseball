@@ -18,6 +18,11 @@ public class GameResult {
         }
     }
 
+    public void show() {
+        GameResultOutput.show(strike, ball);
+
+    }
+
     @Override
     public String toString() {
         return ""+strike+" "+ ball;
